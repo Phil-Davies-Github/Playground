@@ -1,29 +1,27 @@
 const posts = [
-    {title: 'Post One', body: 'This is post one'},
-    {title: 'Post Two', body: 'This is post two'},
-    {title: 'Post Three', body: 'This is post three'}
-];
+    { title: 'Post One', content: 'This is post one'},
+    { title: 'Post Two', content: 'This is post two'},
+]
 
-function getPosts(){
-    setTimeout(function() {
-        var output = '';
-        posts.forEach(post => {
-            output += `<li>${post.title}</li>`;
-        });
-        document.body.innerHTML = output;
-    }, 1000);
+function getPosts() {
+    setTimeout(function(){
+        let output = ''
+        posts.forEach((post) => {
+            output += `<li>${post.title}</li>`
+        })
+        // insert into body
+        document.body.innerHTML = output
+
+    }, 1000)
 }
 
 function createPost(post, callback) {
-    setTimeout(function() {
-        posts.push(post);
-        callback();
-    }, 2000);
+    setTimeout(function(){
+        posts.push(post)
+        callback()
+    }, 2000)
 }
 
-getPosts();
+//getPosts()
 
-createPost({title: 'Post Four', body: 'This is post four'}, getPosts);
-
-console.log(`title : ${posts[0].title}`);
-console.log(`title : ${posts[1].title}`);
+createPost({ title: 'Post Three', content: 'This is post three'}, getPosts) // Including Callback function
